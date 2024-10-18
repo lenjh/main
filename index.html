@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Leonard's</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+a:hover {
+background: yellow none repeat scroll 0%;
+color: maroon;
+text-decoration: underline overline;
+}
+
+ </style>
+  </head>
+  <body>
+    <main class="main">
+      <div class="card-container">
+	        <div class="box-size-1c3"> <a href="#"> </a>
+          
+		 <canvas id="canvas" width="100" height="100"
+        style="background-color:#333">
+        </canvas>
+
+        <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        setInterval(drawClock, 1000);
+
+        function drawClock() {
+          drawFace(ctx, radius);
+          drawNumbers(ctx, radius);
+          drawTime(ctx, radius);
+        }
+
+        function drawFace(ctx, radius) {
+          var grad;
+          ctx.beginPath();
+          ctx.arc(0, 0, radius, 0, 2*Math.PI);
+          ctx.fillStyle = 'white';
+          ctx.fill();
+          grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+          grad.addColorStop(0, '#333');
+          grad.addColorStop(0.5, 'white');
+          grad.addColorStop(1, '#333');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = radius*0.1;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+          ctx.fillStyle = '#333';
+          ctx.fill();
+        }
+
+        function drawNumbers(ctx, radius) {
+          var ang;
+          var num;
+          ctx.font = radius*0.15 + "px arial";
+          ctx.textBaseline="middle";
+          ctx.textAlign="center";
+          for(num = 1; num < 13; num++){
+            ang = num * Math.PI / 6;
+            ctx.rotate(ang);
+            ctx.translate(0, -radius*0.85);
+            ctx.rotate(-ang);
+            ctx.fillText(num.toString(), 0, 0);
+            ctx.rotate(ang);
+            ctx.translate(0, radius*0.85);
+            ctx.rotate(-ang);
+          }
+        }
+
+        function drawTime(ctx, radius){
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //hour
+            hour=hour%12;
+            hour=(hour*Math.PI/6)+
+            (minute*Math.PI/(6*60))+
+            (second*Math.PI/(360*60));
+            drawHand(ctx, hour, radius*0.5, radius*0.07);
+            //minute
+            minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+            drawHand(ctx, minute, radius*0.8, radius*0.07);
+            // second
+            second=(second*Math.PI/30);
+            drawHand(ctx, second, radius*0.9, radius*0.02);
+        }
+
+        function drawHand(ctx, pos, length, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.moveTo(0,0);
+            ctx.rotate(pos);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+        </script>  
+          <a href="https://www.tpsgc-pwgsc.gc.ca/citeparlementaire-parliamentaryprecinct/camera-eng.html">
+            <img src="https://www.tpsgc-pwgsc.gc.ca/citeparlementaire-parliamentaryprecinct/newhillcam.jpg"
+              alt="city" style="width: 200px; height: 100px;"></a><a href="https://www.tpsgc-pwgsc.gc.ca/citeparlementaire-parliamentaryprecinct/camera-eng.html">
+      
+	   <a class="weatherwidget-io" href="https://forecast7.com/en/45d51n76d94/douglas/"
+            data-label_1="DOUGLAS" data-label_2="WEATHER" data-theme="original"
+            data-basecolor="#fff0f5" data-textcolor="#000000" data-highcolor="#fd0000"
+            data-lowcolor="#000eff" data-suncolor="#ffae00" data-cloudcolor="#5a5959">DOUGLAS
+            WEATHER</a>
+          <script>
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+		</script> 
+	  </div>
+	  
+        <div class="box-size-1c2"><img src="news.png" title="google" alt="" width="52"
+            height="52"><br>
+          <a href="http://mail.google.com/" style="">Gmail</a><br>
+          <a href="http://maps.google.ca/">Maps</a><br>
+          <a href="https://keep.google.com/">Keep</a><br>
+          <a href="http://news.google.ca/">News</a><br>
+          <a href="https://mail.protonmail.com/inbox">ProtonMail</a> <br>
+          <a href="http://www.hotmail.com/">Hotmail</a><br>
+          <a href="http://www.facebook.com/">Facebook</a><br>
+          <a href="https://www.accuweather.com/en/ca/douglas/k0j/weather-radar/2289581">Accuweather Radar</a></div>
+        <div class="box-size-1c3"> <img src="search2.jpeg" alt="" width="50" height="50"><br>
+          <br>
+		  <form method="get" action="http://www.google.com/search"> <input maxlength="200"
+              size="20" name="q"> <input value="Google" type="submit"> </form>
+          <br>
+          <a href=https://www.canadapost-postescanada.ca/track-reperage/en#/home"">Canada Post Tracking</a><br>
+          <a href="http://www.whitepages.ca/reverse_phone">ReversePhone</a><br>
+		  <a href="https://www.17track.net/en">17track</a><br>
+          <a href="https://duckduckgo.com/">DuckDuckGo</a><br>
+          <a href="https://www.bing.com/">Bing</a><br>
+          <a href="https://yow.ca/en/flights/arrivals">Airport_Arrivals</a><br>
+          <a href="https://yow.ca/en/flights/departures">Airport_Departures</a><br>
+
+        </div>
+        <div class="box-size-1"><img src="reading.jpg" alt="" style="width: 88px; height: 90px;"><br>
+          <a href="http://www.boingboing.net/">Boing Boing</a><a href="http://ooextras.sourceforge.net/"><br>
+          </a> 
+          <a href="http://makezine.com/">makezine</a><br>
+          <a href="http://www.mirror.co.uk/">Mirror.co.uk</a><br>
+          <a href="http://www.alternet.org/">AlterNet</a><br>
+          <a href="https://informationisbeautiful.net/beautifulnews/">Beautiful
+            News</a><br>
+          <a href="http://www.nationalgeographic.com/">National Geographic</a> <br>
+          <a href="https://www.scientificamerican.com/">Scientific American</a> <br>
+          <a href="https://www.livescience.com/">LIVESCIENCE</a> <a
+            href="#"> </a> </div>
+        <div class="box-size-1c2"><img src="phys_308px.png" alt="" width="67" height="67"><br>
+          <br>
+          <a href="http://www.sciencedaily.com/">ScienceDaily</a><br>
+          <a href="http://www.wired.com/">Wired</a><br>
+          <a href="http://www.sourceforge.net/">Souceforge</a><br>
+          <a href="http://distrowatch.com/">DistroWatch</a><br>
+          <a href="http://www.theregister.co.uk/">The Register</a><br>
+          <a href="http://www.hardwarecanucks.com/">Hardware Canucks</a><a href="#">
+            <div class="description">
+              <p> </p>
+            </div>
+          </a><a href="#"> </a> </div>
+        <div class="box-size-1c3"><img src="Flag-Nunavut.jpg.gif" alt="" width="92"
+            height="51" border="0"><br>
+          <a href="http://www.cbc.ca/news/canada/north">CBC North</a><br>
+          <a href="http://www.nunatsiaq.com/">Nunatsiaq News </a><br>
+          <a href="https://www.weather.gc.ca/city/pages/nu-14_metric_e.html">Baker
+
+
+            Weather</a><br>
+          <a href="http://www.gov.nu.ca/">Gov of Nunavut</a><br>
+          <br>
+          <a href="in2017k.zip">My Keyboard Driver</a><br>
+          (for win 7/10 64bit)<br>
+          <a href="inuktitut-linux.tar.gz">My Linux Inuktitut Keyboard</a><br>
+          <a href="#">
+            <div class="description">
+              <p> </p>
+            </div>
+          </a><a href="#"> </a> </div>
+        <br>
+        <div class="box-size-1"><img src="greenfelt.jpg" alt="" width="145" height="58"><br>
+          <a href="http://www.megagames.com/">MegaGames</a><br>
+          <a href="https://wendysblog.info/">Wendy's</a><br>
+          <a href="http://greenfelt.net/sht">Seahaven Towers</a><br>
+          <br>
+        </div>
+        <div class="box-size-1c2"><img src="shopping_cart.png" alt="" style="width: 75px; height: 75px;"><br>
+          <a href="https://aliexpress.com/">AliExpress</a><br>
+          <a href="https://www.banggood.com/">Banggood</a><br>
+          <a href="https://ca.zennioptical.com/">Zenni Optical</a><br>
+          <a href="http://www.homedepot.ca/">Home Depot</a><br>
+          <a href="http://www.canadiantire.ca/">Canadian Tire</a><br>
+          <a href="https://www.amazon.ca/">Amazon</a><br>
+          <a href="https://www.ebay.ca/">Ebay</a><br>
+          <a href="http://www.canadacomputers.com/">Canada Computers</a><br>
+          <a href="https://www.kijiji.ca/">Kijiji</a><br>
+        </div>
+        <div class="box-size-1c3"> <a href="#"> </a><img src="art-and-music-icon.png"
+            alt="" width="100" height="98"><br>
+          <a href="#"> </a> <a href="https://www.youtube.com/">YouTube</a> <br>
+          <a href="https://www.westland.net/beachcam/">Venice Beach</a><br>
+          <a href="https://liveduvalstreet.com/">Duval Street Key West</a><br>
+          <a href="http://www.kiteboardbc.com/webcam/jericho/">Jericho Beach</a>
+        </div>
+        <div class="box-size-1"> <a href="#"> </a><img src="cloud.png" alt=""
+            width="91" height="91" border="0"><br>
+          <a href="https://mega.nz/fm/account/plan">MEGA</a><br>
+          <a href="https://www.sync.com/">Sync</a><br>
+          <a href="https://www.mediafire.com/">Mediafire</a> <br>
+          <a href="https://www.dropbox.com/">Dropbox</a> <br>
+          <a href="https://drive.google.com/drive/my-drive">Google Drive</a>
+      </div>
+      <div class="box-size-1c2"> <a href="#"> </a><img src="download.png" alt=""
+            width="200" height="91" border="0"><br>
+         <img src="note.png" alt=""
+            width="91" height="91" border="0">
+            <img src="notepadshot.png" alt=""
+            width="60" height="91" border="0"><br>
+          <a href="MinimalistNotepad.apk">My Android Minimalist Notepad</a><br>
+          MD5 cee842183f1465c31c0447778b29dadc<br><br>
+		<a href="in2017k.zip">My Windows Keyboard Driver</a><br>
+          <br>
+          <a href="inuktitut-linux.tar.gz">My Linux Inuktitut Keyboard</a><br>
+          <a href="#">
+            <div class="description">
+              <p> </p>
+            </div>
+          </a><a href="#"> </a> </div>
+          </div>
+      </div>
+
+    </main>
+  </body>
+</html>

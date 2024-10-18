@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <link rel="alternate stylesheet" type="text/css" href="resource://gre-resources/plaintext.css"
+      title="Wrap Long Lines">
+  </head>
+  <body>
+    <pre>/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+
+body {
+    font-family: sans-serif;
+}
+
+/* Header Styles */
+
+.header {
+    background-color: LavenderBlush;
+    height: 3em;
+    border-bottom: 2px solid black;
+}
+
+/*top line*/
+h1 {
+    text-align: center;
+    color: white;
+    font-size: x-large;
+}
+
+.main {
+    width: 100%;
+    background-color: transparent;
+}
+
+.card-container {
+
+    width: 97%;
+    margin: 0 auto;
+    padding: 0.5em 0;
+    background-color: transparent;
+}
+
+
+.box-size-1 {
+
+    width: 97%;
+    margin: 0.5em auto;
+    background-color: LavenderBlush;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 7px;
+  width: 340px;
+  height:340px;
+
+}
+
+.box-size-1c2 {
+
+    width: 97%;
+    margin: 0.5em auto;
+    background-color: OliveDrab;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 7px;
+  width: 340px;
+  height:340px;
+
+}
+
+.box-size-1c3 {
+
+    width: 97%;
+    margin: 0.5em auto;
+    background-color: PaleGoldenRod;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 7px;
+  width: 340px;
+  height:340px;
+
+}
+.box-size-2 {
+   margin: 0.1em auto;
+    background-color: LavenderBlush;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 7px;
+    width: 340px;
+
+
+}
+
+.box-size-3 {
+   margin: 0.1em auto;
+    background-color: LavenderBlush;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 7px;
+  width:800px;
+ 
+  
+
+
+}
+
+
+
+
+
+/*text in the box*/
+a {
+
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    line-height: 150%
+}
+
+
+
+
+
+/* Flexbox Styles */
+.card-container { 
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-container-2 { 
+    display: flex;
+    flex-wrap: wrap;
+}
+</pre>
+  </body>
+</html>
